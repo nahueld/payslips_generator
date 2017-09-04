@@ -5,5 +5,6 @@ export class Payslip {
   incomeTax : number;
   netIncome : number;
   super : number;
+  payPeriod : string;
 
 }
