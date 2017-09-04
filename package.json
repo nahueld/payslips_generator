@@ -1,0 +1,37 @@
+{
+  "name": "myob_payslips_generator",
+  "version": "1.0.0",
+  "description": "Generates payslips based on employee details",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "build": "tsc -p ./tsconfig.json",
+    "start": "npm run test && npm run build && node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nahueld/myob_payslips_generator.git"
+  },
+  "author": "Nahuel Dealbera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nahueld/myob_payslips_generator/issues"
+  },
+  "homepage": "https://github.com/nahueld/myob_payslips_generator#readme",
+  "dependencies": {
+    "ts-node": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.5",
+    "@types/chai": "^4.0.4",
+    "@types/express": "^4.0.37",
+    "@types/lodash": "^4.14.74",
+    "@types/mocha": "^2.2.42",
+    "body-parser": "^1.17.2",
+    "chai": "^4.1.2",
+    "express": "^4.15.4",
+    "lodash": "^4.17.4",
+    "mocha": "^3.5.0",
+    "typescript": "^2.5.2",
+    "unirest": "^0.5.1"
+  }
+}
