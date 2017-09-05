@@ -1,16 +1,16 @@
-import { PayslipService } from './service/payslip_service';
-
 import * as express from 'express';
+import * as employee from './controllers/employee';
+import * as payslip from './controllers/payslip';
+import * as home from './controllers/home';
+import { Config } from './config/config';
 
 var app = express();
 
-app.get('/', function(req, res) {
-  PayslipService
-  .get()
-  .then(response => res.send(response))
-  .catch(response => res.send(response));
-});
+//app routes
+app.get('/', home.index);
 
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!');
-});
+//app api routes
+app.get(Config.ROUTES.PAYSLIPS, payslip.get);
+
+//start server
+app.listen(Config.PORT, () => console.log('Server started.'));

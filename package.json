@@ -5,7 +5,8 @@
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
     "build": "tsc -p ./tsconfig.json",
-    "start": "npm run test && npm run build && node dist/app.js"
+    "resources" : "cp -a ./src/views/ ./dist/",
+    "start": "npm run test && npm run build && npm run resources && node dist/app.js"
   },
   "repository": {
     "type": "git",

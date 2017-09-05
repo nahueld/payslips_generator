@@ -5,8 +5,4 @@ export interface ITaxRate {
   readonly basePayment : number;
   readonly additional  : number;
 
-  calculate : (salary : number) => number;
-
-  isInRange : (salary : number) => boolean;
-
 }
