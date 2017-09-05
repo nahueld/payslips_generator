@@ -14,4 +14,8 @@ export class TaxCalculator {
             .value();
   }
 
+  static isInRange(taxRate : ITaxRate, salary : number) : boolean {
+    return salary >= taxRate.lowerBound && salary <= taxRate.upperBound;
+  }
+
 }

@@ -1,11 +1,11 @@
-import { EmployeeDetailsService } from './service/employee_details_service';
+import { PayslipService } from './service/payslip_service';
 
 import * as express from 'express';
 
 var app = express();
 
 app.get('/', function(req, res) {
- EmployeeDetailsService
+  PayslipService
   .get()
   .then(response => res.send(response))
   .catch(response => res.send(response));

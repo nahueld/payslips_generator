@@ -4,7 +4,6 @@ export class MoneyUtil {
   
   static round(money : number) {
     return _.chain(money)
-            .tap(m => m.toString())
             .split('.')
             .takeRight()
             .toNumber()
@@ -19,7 +18,11 @@ export class MoneyUtil {
   }
 
   private static enforceTwoDecimals(cent : number) : number {
-    return cent < 10 ? cent * 10 : cent;
+    return _.chain(cent)
+            .thru(c => c.toString().slice(0,2).toString())
+            .toNumber()
+            .thru(c => c < 10 ? c * 10 : c)
+            .value();
   }
 
 

@@ -4,7 +4,7 @@ export class Employee {
 
   firstName : string;
   lastName : string;
-  annualSalary : string;
+  annualSalary : number;
   superRate : number;
   startDate : string;
   endDate : string;

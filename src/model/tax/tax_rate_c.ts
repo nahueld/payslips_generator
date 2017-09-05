@@ -7,8 +7,12 @@ export class TaxRateC implements ITaxRate {
   readonly lowerBound  : number = 37001;
   readonly basePayment : number = 3572;
   readonly additional  : number = 0.325;
-
+ 
   calculate(salary : number) : number {
     return TaxCalculator.calculate(this, salary);
+  }
+
+  isInRange(salary : number) : boolean {
+    return TaxCalculator.isInRange(this,salary);
   }
 }

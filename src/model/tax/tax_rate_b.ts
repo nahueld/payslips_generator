@@ -11,4 +11,8 @@ export class TaxRateB implements ITaxRate {
   calculate(salary : number) : number {
     return TaxCalculator.calculate(this, salary);
   }
+
+  isInRange(salary : number) : boolean {
+    return TaxCalculator.isInRange(this,salary);
+  }
 }

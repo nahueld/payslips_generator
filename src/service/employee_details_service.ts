@@ -13,7 +13,7 @@ export class EmployeeDetailsService {
       .get(this.endpoint)
       .end((r) => {
         let response : IResponse = new ResponseFactory()
-                                    .withUnirestResponse(r)
+                                    .withResponse(r)
                                     .build(EmployeeResponseConverter);
         return response.error ? reject(response) : resolve(response);
       });

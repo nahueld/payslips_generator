@@ -7,4 +7,6 @@ export interface ITaxRate {
 
   calculate : (salary : number) => number;
 
+  isInRange : (salary : number) => boolean;
+
 }

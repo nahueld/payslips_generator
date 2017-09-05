@@ -5,7 +5,11 @@ describe('MoneyUtil', () => {
 
   describe('round', () => {
 
-    it('should return 0', () => {
+    it('should deal with float point decimals', () => {
+      expect(MoneyUtil.round(5004.16666667)).to.be.eq(5004);
+    });
+
+    it('should deal 0', () => {
       expect(MoneyUtil.round(0)).to.be.eq(0);
     });
 
