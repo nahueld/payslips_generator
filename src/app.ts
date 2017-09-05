@@ -13,4 +13,4 @@ app.get('/', home.index);
 app.get(CONFIG.ROUTES.PAYSLIPS, payslip.get);
 
 //start server
-app.listen(CONFIG.PORT, () => console.log('Server started.'));
+app.listen(CONFIG.PORT, () => console.log(`Server started. (Port: ${CONFIG.PORT})`));
