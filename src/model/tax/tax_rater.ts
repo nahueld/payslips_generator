@@ -4,10 +4,10 @@ import * as _ from "lodash";
 
 export class TaxRater {
 
-  calculate(salary : number) : number {
+  static calculate(salary : number) : number {
     return _(TaxRates)
             .filter(t => TaxCalculator.isInRange(t, salary))
-            .map(t    => TaxCalculator.calculate(t, salary))
-            .first() || 0;                           
+            .map(   t => TaxCalculator.calculate(t, salary))
+            .first() || 0;   
   }
 }

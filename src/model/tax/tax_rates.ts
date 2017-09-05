@@ -16,7 +16,7 @@ export const TaxRates = [
     lowerBound : 37001,
     upperBound : 87000,
     basePayment : 3572,
-    additional : 0
+    additional : 0.325
   },
   {
     lowerBound : 87001,
@@ -26,7 +26,7 @@ export const TaxRates = [
   },
   {
     lowerBound : 180001,
-    upperBound : -1,
+    upperBound : Number.MAX_SAFE_INTEGER,
     basePayment : 54232,
     additional : 0.45
   }

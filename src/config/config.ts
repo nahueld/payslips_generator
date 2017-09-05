@@ -1,4 +1,4 @@
-export class Config {
+export class CONFIG {
 
   static PORT = 3000;
 
