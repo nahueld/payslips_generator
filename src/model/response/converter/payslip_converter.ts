@@ -1,3 +1,4 @@
+import { Employee } from './../../employee/employee';
 import { PayslipFactory } from './../../payslip/payslip_factory';
 import { EmployeesResponse } from './../employees_response';
 import { IConverter } from './iconverter';
@@ -10,6 +11,7 @@ export class PayslipResponseConverter implements IConverter {
   convert(employeesResponse : EmployeesResponse) : PayslipsResponse {
     let payslipsResponse = new PayslipsResponse();
     payslipsResponse.content = this.getBody(employeesResponse);
+    
     payslipsResponse.error = false;
     return payslipsResponse;
   }
@@ -22,11 +24,15 @@ export class PayslipResponseConverter implements IConverter {
   private parseBody(response : EmployeesResponse) : Payslip[] {
     return _(response.content)
             .compact()
-            .map(e => new PayslipFactory()
-              .withName(e.firstName, e.lastName)
-              .withAnnualSalaryAndSuper(e.annualSalary,e.superRate)
-              .withPeriod(e.startDate, e.endDate)
-              .get())
+            .map(e => this.createPayslip(e))
             .value();
+  }
+
+  private createPayslip(employeeDetails : Employee) : Payslip  {
+    return new PayslipFactory()
+            .withName(employeeDetails.firstName, employeeDetails.lastName)
+            .withAnnualSalaryAndSuper(employeeDetails.annualSalary, employeeDetails.superRate)
+            .withPeriod(employeeDetails.startDate, employeeDetails.endDate)
+            .get();
   }
 }
