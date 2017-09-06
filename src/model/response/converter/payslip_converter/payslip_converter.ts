@@ -30,7 +30,7 @@ export class PayslipResponseConverter implements IConverter {
   private createPayslip(employeeDetails : Employee) : Payslip  {
     return new PayslipFactory()
             .withName(employeeDetails.firstName, employeeDetails.lastName)
-            .withAnnualSalaryAndSuper(employeeDetails.annualSalary, employeeDetails.superRate)
+            .withAnnualSalaryAndSuperRate(employeeDetails.annualSalary, employeeDetails.superRate)
             .withPeriod(employeeDetails.startDate, employeeDetails.endDate)
             .get();
   }

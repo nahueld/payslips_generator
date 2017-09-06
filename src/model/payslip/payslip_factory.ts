@@ -18,7 +18,7 @@ export class PayslipFactory {
     return this;
   }
 
-  withAnnualSalaryAndSuper(salary : number, superRate : number) : PayslipFactory  {
+  withAnnualSalaryAndSuperRate(salary : number, superRate : number) : PayslipFactory  {
     this.payslip.grossIncome = SalaryCalculator.grossIncome(salary);
     this.payslip.incomeTax = TaxRater.calculate(salary);
     this.payslip.netIncome = SalaryCalculator.netIncome(this.payslip.grossIncome, this.payslip.incomeTax);
