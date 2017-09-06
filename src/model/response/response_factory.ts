@@ -4,7 +4,6 @@ import { IResponse } from './iresponse';
 export class ResponseFactory {
 
   response : IResponse;
-  converter : IConverter;
 
   constructor() {
   }

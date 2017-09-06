@@ -1,14 +1,22 @@
 # myob_payslips_generator
 Generates payslips based on employee details
 
-#Dependencies
+#### Dependencies
 - node (v6.9.5)
-- typescript (``npm install -g typescript``)
 
-#Building
+#### Building
+- Install dependencies ``npm install``
 - Run tests: ``npm run test``
 - Build: ``npm run build``
-- Start local server: ``npm  run start``
+- Start local server: ``npm run start`` (this will run all the previous steps).
 
-# Bugs
-There is a bug in documentation the ranges are not correct with the 'over' part.
+#### Assumptions and comments
+- UI part is done just for completion and doesn't have proper test coverage and/or implementation.
+- The exercise mentions: "The following rates for 2017-18 apply from 1 July 2017." but:
+  - The employee details retrieved from the endpoint are from previous months.
+  - The employee details retrieved don't have year reference.
+  - So I assume that this may be an issue in the documentation? In real life I'd ask
+  the interested parties to clarify this.
+- I assume that the payslips are always monthly, that is, the dates coming from
+employee details will always represent 1 month, again, in a real life scenario
+I'd confirm this will the stakeholders (i.e: business analyst, PM, etc).
