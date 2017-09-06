@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/nahueld/myob_payslips_generator.svg?style=svg&circle-token=f0026905801966a9e15fe4be88cc83eb37fdbc04)](https://circleci.com/gh/nahueld/myob_payslips_generator)
+[![CircleCI](https://circleci.com/gh/nahueld/myob_payslips_generator/tree/master.svg?style=svg&circle-token=f0026905801966a9e15fe4be88cc83eb37fdbc04)](https://circleci.com/gh/nahueld/myob_payslips_generator/tree/master)
 
 # myob_payslips_generator
 Generates payslips based on employee details
