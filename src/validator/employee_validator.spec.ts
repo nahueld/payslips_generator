@@ -14,7 +14,7 @@ describe('Validator', () => {
             firstName : "john",
             lastName : "snow",
             annualSalary : 50000,
-            superRate : 0,
+            superRate : 50,
             startDate : "01 March",
             endDate : "31 March"
           });
@@ -47,30 +47,80 @@ describe('Validator', () => {
           expect(validation.key).to.be.eq('validateLastName');
         });
 
-        it('should identify invalid annualSalary in Employee', () => {
-          let validation = Validator.validate(EmployeeValidator,  {
-            firstName : "john",
-            lastName : "snow",
-            annualSalary : "$10",
-            superRate : 50,
-            startDate : "01 March",
-            endDate : "31 March"
+        describe('should identify invalid annualSalary in Employee', () => {
+
+          it('when annualSalary is float salary', () => {
+            let validation = Validator.validate(EmployeeValidator,  {
+              firstName : "john",
+              lastName : "snow",
+              annualSalary : 10.5,
+              superRate : 50,
+              startDate : "01 March",
+              endDate : "31 March"
+            });
+
+            expect(validation.valid).to.be.eq(false);
+            expect(validation.key).to.be.eq('validateAnnualSalary');
           });
-          expect(validation.valid).to.be.eq(false);
-          expect(validation.key).to.be.eq('validateAnnualSalary');
+
+          it('when annualSalary is negative salary', () => {
+            let validation = Validator.validate(EmployeeValidator,  {
+              firstName : "john",
+              lastName : "snow",
+              annualSalary : -10,
+              superRate : 50,
+              startDate : "01 March",
+              endDate : "31 March"
+            });
+
+            expect(validation.valid).to.be.eq(false);
+            expect(validation.key).to.be.eq('validateAnnualSalary');
+          });
+
+          it('when annualSalary is non-numeric salary', () => {
+            let validation = Validator.validate(EmployeeValidator,  {
+              firstName : "john",
+              lastName : "snow",
+              annualSalary : "$10",
+              superRate : 50,
+              startDate : "01 March",
+              endDate : "31 March"
+            });
+
+            expect(validation.valid).to.be.eq(false);
+            expect(validation.key).to.be.eq('validateAnnualSalary');
+          });
+          
         });
 
-        it('should identify invalid superRate in Employee', () => {
-          let validation = Validator.validate(EmployeeValidator,  {
-            firstName : "john",
-            lastName : "snow",
-            annualSalary : 50000,
-            superRate : 51,
-            startDate : "01 March",
-            endDate : "31 March"
+        describe('should identify invalid superRate in Employee', () => {
+
+          it('when superRate is negative', () => {
+            let validation = Validator.validate(EmployeeValidator,  {
+              firstName : "john",
+              lastName : "snow",
+              annualSalary : 50000,
+              superRate : -1,
+              startDate : "01 March",
+              endDate : "31 March"
+            });
+            expect(validation.valid).to.be.eq(false);
+            expect(validation.key).to.be.eq('validateSuperRate');
           });
-          expect(validation.valid).to.be.eq(false);
-          expect(validation.key).to.be.eq('validateSuperRate');
+
+          it('when superRate is greater than 50', () => {
+            let validation = Validator.validate(EmployeeValidator,  {
+              firstName : "john",
+              lastName : "snow",
+              annualSalary : 50000,
+              superRate : 51,
+              startDate : "01 March",
+              endDate : "31 March"
+            });
+            expect(validation.valid).to.be.eq(false);
+            expect(validation.key).to.be.eq('validateSuperRate');
+          });
+         
         });
 
         it('should identify invalid startDate in Employee', () => {

@@ -12,11 +12,11 @@ export const EmployeeValidator = {
   },
 
   validateAnnualSalary : (employee : Employee) : boolean => {
-    return _.hasIn(employee, 'annualSalary') && _.isNumber(employee.annualSalary) && employee.annualSalary >= 0;
+    return _.hasIn(employee, 'annualSalary') && _.isNumber(employee.annualSalary) && employee.annualSalary >= 0 && _.isInteger(employee.annualSalary);
   },
 
   validateSuperRate : (employee : Employee) : boolean => {
-    return _.hasIn(employee, 'superRate') && _.isNumber(employee.superRate) && employee.superRate >= 0 && employee.superRate <= 50;
+    return _.hasIn(employee, 'superRate') && _.isNumber(employee.superRate) && _.isInteger(employee.superRate) && employee.superRate >= 0 && employee.superRate <= 50;
   },
 
   validateStartDate : (employee : Employee) : boolean => {

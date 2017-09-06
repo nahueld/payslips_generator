@@ -1,17 +1,19 @@
-[![CircleCI](https://circleci.com/gh/nahueld/myob_payslips_generator/tree/master.svg?style=svg&circle-token=f0026905801966a9e15fe4be88cc83eb37fdbc04)](https://circleci.com/gh/nahueld/myob_payslips_generator/tree/master)
-
 # myob_payslips_generator
 Generates payslips based on employee details
 
 #### Dependencies
-- node (v6.9.5)
+- node ( >= v6.9.5)
 
-#### Building
+#### Building Locally
 - Install dependencies ``npm install``
 - Run tests: ``npm run test``
 - Build: ``npm run build``
-- Start local server: ``npm run start`` (this will run all the previous steps).
+- Copy Resources : ``npm run resources``
+- Start local server: ``npm start`` (this will run all previous steps).
 - Visit: ``http://localhost:3000/``
+
+#### CI (status: [![CircleCI](https://circleci.com/gh/nahueld/myob_payslips_generator/tree/master.svg?style=svg&circle-token=f0026905801966a9e15fe4be88cc83eb37fdbc04)](https://circleci.com/gh/nahueld/myob_payslips_generator/tree/master))
+All changes are integrated using circle-ci, request access if necessary.
 
 #### Assumptions and comments
 - UI part is done just for completion and doesn't have proper test coverage and/or implementation.
