@@ -39,7 +39,6 @@ describe('PayslipResponseConverter', () => {
       }
       let converter = new PayslipResponseConverter();
       let payslipResponse = converter.convert(employeeResponse);
-      console.log(payslipResponse);
       expect(13).to.be.eq(13);
     });
 
