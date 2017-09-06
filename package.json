@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Generates payslips based on employee details",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -r ts-node/register ./src/**/**/**/*.spec.ts",
+    "test": "./node_modules/.bin/mocha -r ts-node/register ./src/**/*.spec.ts",
     "build": "./node_modules/.bin/tsc -p ./tsconfig.json",
     "resources": "cp -a ./src/views ./dist/",
     "start": "npm install && npm run test && npm run build && npm run resources && node ./dist/app.js"
@@ -18,9 +18,7 @@
     "url": "https://github.com/nahueld/myob_payslips_generator/issues"
   },
   "homepage": "https://github.com/nahueld/myob_payslips_generator#readme",
-  "dependencies": {
-    "ts-node": "^3.3.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/body-parser": "^1.16.5",
     "@types/chai": "^4.0.4",
@@ -34,6 +32,7 @@
     "lodash": "^4.17.4",
     "mocha": "^3.5.0",
     "sinon": "^3.2.1",
+    "ts-node": "^3.3.0",
     "typescript": "^2.5.2",
     "unirest": "^0.5.1"
   }
