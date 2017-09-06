@@ -20,11 +20,11 @@ export const EmployeeValidator = {
   },
 
   validateStartDate : (employee : Employee) : boolean => {
-    return _.hasIn(employee, 'startDate') && _.isDate(new Date(employee.startDate));
+    return _.hasIn(employee, 'startDate') && !_.isEmpty(employee.startDate);
   },
 
   validateEndDate : (employee : Employee) : boolean => {
-    return _.hasIn(employee, 'endDate') && _.isDate(new Date(employee.endDate));    
+    return _.hasIn(employee, 'endDate') && !_.isEmpty(employee.endDate);    
   }
 
 }
