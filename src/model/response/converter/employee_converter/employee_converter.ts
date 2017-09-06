@@ -1,3 +1,4 @@
+import { EmployeeResponseFactory } from './../../employees_response/employee_response_factory';
 import { Employee } from './../../../employee/employee';
 import { EmployeesResponse } from './../../employees_response/employees_response';
 import { IConverter } from './../iconverter';
@@ -7,12 +8,10 @@ import * as _ from 'lodash';
 export class EmployeeResponseConverter implements IConverter {
 
   convert(externalResponse : any) : EmployeesResponse {
-    let employeesResponse = new EmployeesResponse();
-    employeesResponse.statusCode = externalResponse.code;
-    employeesResponse.error      = !externalResponse.ok;    
-    employeesResponse.message    = externalResponse.ok ? "" : externalResponse.error.message;
-    employeesResponse.content    = this.getBody(externalResponse);
-    return employeesResponse;
+    return new EmployeeResponseFactory()
+            .withContent(this.convertExternalResponseToEmployeeResponse(externalResponse))
+            .withExternalResponse(externalResponse)
+            .create();
   }
 
   private convertExternalResponseToEmployeeResponse(externalResponse : any) : Employee[] {
