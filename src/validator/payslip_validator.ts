@@ -1,44 +1,30 @@
 import { Payslip } from './../model/payslip/payslip';
 import * as _ from 'lodash';
 
-export class PayslipValidator {
+export const PayslipValidator = {
 
-  static validate(payslip : Payslip)  : any {
-    let validators = [this.validateName, 
-                      this.validateGrossIncome, 
-                      this.validateIncomeTax, 
-                      this.validateNetIncome, 
-                      this.validateSuper, 
-                      this.validatePayPeriod];
-    return _(validators)
-              .map(f => f(payslip))
-              .find(b => !b) || true;
-  }
+  validateName : (payslip : Payslip) : boolean => {
+    return _.hasIn(payslip, 'name') && !_.isEmpty(payslip.name);
+  },
 
-  private static validateName(payslip : Payslip) : boolean {
-    //return _.hasIn(payslip, 'name') && _.isEmpty(payslip.name);
-    return true;
-  }
+  validateGrossIncome : (payslip : Payslip) : boolean => {
+    return _.hasIn(payslip, 'grossIncome') && _.isNumber(payslip.grossIncome) && payslip.grossIncome > 0;
+  },
 
-  private static validateGrossIncome(payslip : Payslip) : boolean {
-    //return _.hasIn(payslip, 'grossIncome') && _.isNumber(payslip.grossIncome) && payslip.grossIncome > 0;
-    return true;
-  }
+  validateIncomeTax : (payslip : Payslip) : boolean => {
+    return _.hasIn(payslip, 'incomeTax') && _.isNumber(payslip.incomeTax) && payslip.incomeTax >= 0;
+  },
 
-  private static validateIncomeTax(payslip : Payslip) : boolean {
-    return true;
-  }
+  validateNetIncome : (payslip : Payslip) : boolean => {
+    return _.hasIn(payslip, 'netIncome') && _.isNumber(payslip.netIncome) && payslip.netIncome > 0;
+  },
 
-  private static validateNetIncome(payslip : Payslip) : boolean {
-    return true;
-  }
+  validateSuper : (payslip : Payslip) : boolean => {
+    return _.hasIn(payslip, 'super') && _.isNumber(payslip.super) && payslip.super >= 0;
+  },
 
-  private static validateSuper(payslip : Payslip) : boolean {
-    return true;
-  }
-
-  private static validatePayPeriod(payslip : Payslip) : boolean {
-    return true;
+  validatePayPeriod : (payslip : Payslip) : boolean => {
+    return _.hasIn(payslip, 'payPeriod') && _.isString(payslip.payPeriod) && !_.isEmpty(payslip.payPeriod);    
   }
 
 }

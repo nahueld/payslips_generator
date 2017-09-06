@@ -1,8 +1,8 @@
-import { Payslip } from './../payslip/payslip';
-import { IResponse } from "./iresponse";
+import { Payslip } from './../../payslip/payslip';
+import { IResponse } from './../iresponse';
 
 export class PayslipsResponse implements IResponse {
-  statusCode : string;
+  statusCode : number;
   error : boolean;
   message : string;
   content : Payslip[];
