@@ -11,6 +11,7 @@ Generates payslips based on employee details
 - Run tests: ``npm run test``
 - Build: ``npm run build``
 - Start local server: ``npm run start`` (this will run all the previous steps).
+- Visit: ``http://localhost:3000/``
 
 #### Assumptions and comments
 - UI part is done just for completion and doesn't have proper test coverage and/or implementation.

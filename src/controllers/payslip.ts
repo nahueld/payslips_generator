@@ -13,8 +13,8 @@ export function get(req, res) {
   return promise
           .then(() => employee.get())
           .then((employeesResponse : EmployeesResponse)  => generatePayslips(employeesResponse))
-          .then((payslipsResponse  : PayslipsResponse)   => res.send(payslipsResponse))
-          .catch((errorResponse    : PayslipsResponse)   => res.send(errorResponse));
+          .then((payslipsResponse  : PayslipsResponse)   => res.status(payslipsResponse.statusCode).send(payslipsResponse))
+          .catch((errorResponse    : PayslipsResponse)   => res.status(errorResponse.statusCode).send(errorResponse));
 }
 
 function generatePayslips(employeesResponse : EmployeesResponse) : Promise<PayslipsResponse> {
