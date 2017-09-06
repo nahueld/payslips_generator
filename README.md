@@ -22,3 +22,4 @@ Generates payslips based on employee details
 - I assume that the payslips are always monthly, that is, the dates coming from
 employee details will always represent 1 month, again, in a real life scenario
 I'd confirm this will the stakeholders (i.e: business analyst, PM, etc).
+- Tax rates ranges are hardcoded in a file although ideally they should be read from DB.

@@ -1,8 +1,9 @@
-import { PayslipsResponse } from './../model/response/payslips_response';
-import { PayslipResponseConverter } from './../model/response/converter/payslip_converter';
+import { PayslipResponseConverter } from './../model/response/converter/payslip_converter/payslip_converter';
 import { ResponseFactory } from './../model/response/response_factory';
 import { IResponse } from './../model/response/iresponse';
-import { EmployeesResponse } from './../model/response/employees_response';
+import { PayslipsResponse } from './../model/response/payslip_response/payslips_response';
+import { EmployeesResponse } from './../model/response/employees_response/employees_response';
+
 import * as employee from './employee';
 import * as unirest from 'unirest';
 

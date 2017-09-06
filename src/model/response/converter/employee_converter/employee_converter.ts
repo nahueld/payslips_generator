@@ -1,5 +1,6 @@
-import { EmployeeResponseFactory } from './../../employees_response/employee_response_factory';
 import { Employee } from './../../../employee/employee';
+import { EmployeesResponse } from './../../employees_response/employees_response';
+import { IConverter } from './../iconverter';
 
 import * as _ from 'lodash';
 

@@ -1,8 +1,8 @@
-import { EmployeeResponseConverter } from './../model/response/converter/employee_converter';
+import { EmployeesResponse } from './../model/response/employees_response/employees_response';
+import { EmployeeResponseConverter } from './../model/response/converter/employee_converter/employee_converter';
 import { ResponseFactory } from './../model/response/response_factory';
 import { IResponse } from './../model/response/iresponse';
 import { CONFIG } from './../config/config';
-import { EmployeesResponse } from './../model/response/employees_response';
 import * as unirest from 'unirest';
 
 export function get() : Promise<EmployeesResponse> {
