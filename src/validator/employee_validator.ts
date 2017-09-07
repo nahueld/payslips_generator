@@ -16,7 +16,7 @@ export const EmployeeValidator = {
   },
 
   validateSuperRate : (employee : Employee) : boolean => {
-    return _.hasIn(employee, 'superRate') && _.isNumber(employee.superRate) && _.isInteger(employee.superRate) && employee.superRate >= 0 && employee.superRate <= 50;
+    return _.hasIn(employee, 'superRate') && _.isNumber(employee.superRate) && employee.superRate >= 0 && employee.superRate <= 50;
   },
 
   validateStartDate : (employee : Employee) : boolean => {
@@ -24,7 +24,7 @@ export const EmployeeValidator = {
   },
 
   validateEndDate : (employee : Employee) : boolean => {
-    return _.hasIn(employee, 'endDate') && !_.isEmpty(employee.endDate);    
+    return _.hasIn(employee, 'endDate') && !_.isEmpty(employee.endDate);
   }
 
 }
